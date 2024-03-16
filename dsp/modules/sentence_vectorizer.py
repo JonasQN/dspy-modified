@@ -59,7 +59,7 @@ class SentenceTransformersVectorizer(BaseSentenceVectorizer):
         self.num_devices, self.is_gpu = determine_devices(max_gpu_devices)
         self.proxy_device = 'cuda' if self.is_gpu else 'cpu'
 
-        self.model = SentenceTransformer(model_name_or_path, device=self.proxy_device)
+        self.model = SentenceTransformer(model_name_or_path, device=self.proxy_device).to(torch.float32)
 
         self.model_name_or_path = model_name_or_path
         self.vectorize_bs = vectorize_bs
