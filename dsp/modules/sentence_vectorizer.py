@@ -3,7 +3,7 @@ from typing import List, Optional
 
 import numpy as np
 import openai
-
+import torch
 
 class BaseSentenceVectorizer(abc.ABC):
     '''
